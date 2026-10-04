@@ -4,6 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 import java.time.Duration;
 
@@ -16,7 +17,7 @@ public class TC001_RegisterUserTest {
      public  void openPage (){
 
          driver = new ChromeDriver();
-         driver.manage().window().maximize();
+//         driver.manage().window().maximize();
          driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
          driver.get("https://demo.guru99.com/test/newtours/index.php");
      }
@@ -24,6 +25,9 @@ public class TC001_RegisterUserTest {
 
      @Test
     public void TC001(){
+
+         HomePage homePage = new HomePage(driver);
+         homePage.selectRegisterMenu();
 
 
      }
