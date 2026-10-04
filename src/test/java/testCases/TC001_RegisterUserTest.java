@@ -1,11 +1,13 @@
 package testCases;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.RegisterPage;
+import pages.RegisterSuccessPage;
 
 import java.time.Duration;
 
@@ -39,13 +41,18 @@ public class TC001_RegisterUserTest {
          registerPage.setConfirmPassword("chamalka");
          registerPage.clickSubmitButton();
 
+         RegisterSuccessPage registerSuccessPage = new RegisterSuccessPage(driver);
+         String actualText = registerSuccessPage.clickSuccessMessage();
+         Assert.assertTrue(actualText.contains("Dear"), "Registration attempts fail");
+
+
 
      }
 
 
      @AfterMethod
     public  void closeBrowser(){
-         driver.quit();
+//         driver.quit();
      }
 
 
