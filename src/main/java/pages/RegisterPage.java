@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegisterPage {
 
@@ -29,7 +31,30 @@ public class RegisterPage {
         driver.findElement(lastNameField).sendKeys(lastName);
     }
 
-    
+    public  void setCountry() {
+        WebElement countrySelectElement = driver.findElement(countryDropdown);
+        Select dropDownCountry = new Select(countrySelectElement);
+        dropDownCountry.selectByIndex(0);
+    }
+
+    public  void  setEmail(String email){
+        driver.findElement(emailField).sendKeys(email);
+    }
+
+    public void setPassword(String password) {
+        driver.findElement(passwordField).sendKeys(password);
+
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        driver.findElement(confirmPasswordField).sendKeys(confirmPassword);
+
+    }
+
+    public void clickSubmitButton(){
+        driver.findElement(submitButton).click();
+    }
+
 
 
 

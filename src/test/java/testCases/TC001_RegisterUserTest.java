@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.RegisterPage;
 
 import java.time.Duration;
 
@@ -28,6 +29,15 @@ public class TC001_RegisterUserTest {
 
          HomePage homePage = new HomePage(driver);
          homePage.selectRegisterMenu();
+
+         RegisterPage  registerPage = new RegisterPage(driver);
+         registerPage.setFirstName("chamalka");
+         registerPage.setLastName("selenium");
+         registerPage.setEmail("chamalka@gmail.com");
+         registerPage.setCountry();
+         registerPage.setPassword("chamalka");
+         registerPage.setConfirmPassword("chamalka");
+         registerPage.clickSubmitButton();
 
 
      }
